@@ -22,7 +22,7 @@ public class PersonalInformationController implements Initializable, DataChangeL
 
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-	private User user;
+	private User loggedInUser;
 
 	@FXML
 	private Button btEdit;
@@ -37,10 +37,10 @@ public class PersonalInformationController implements Initializable, DataChangeL
 
 	public void onBtEditAction(ActionEvent event) {
 		Stage parentStage = GUILoader.currentStage(event);
-		GUILoader.createDialogForm("Enter employee data", user, "RegistrationForm.fxml", parentStage,
+		GUILoader.createDialogForm("Enter employee data", loggedInUser, "RegistrationForm.fxml", parentStage,
 				(RegistrationFormController controller) -> {
 					controller.setService(new UserService());
-					controller.setUser(user);
+					controller.setMyUser(loggedInUser);
 					controller.subscribeDataChangeListener(this);
 					controller.updateFormData();
 					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//badge.png", 
@@ -50,27 +50,27 @@ public class PersonalInformationController implements Initializable, DataChangeL
 
 	public void onBtPasswordAction(ActionEvent event) {
 		Stage parentStage = GUILoader.currentStage(event);
-		GUILoader.createDialogForm("Enter a new password", user, "PasswordForm.fxml",
+		GUILoader.createDialogForm("Enter a new password", loggedInUser, "PasswordForm.fxml",
 				parentStage, (PasswordFormController controller) -> {
 					controller.setService(new UserService());
-					controller.setUser(user);
+					controller.setMyUser(loggedInUser);
 					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//padlock.png", 
 							140.0, 160.0, 475.0, 10.0, 15.0, 50.0);
 				});
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setLoggedInUser(User loggedInUser) {
+		this.loggedInUser = loggedInUser;
 	}
 
 	public void updateLabels() {
-		labelId.setText(String.valueOf(user.getId()));
-		labelFullName.setText(user.getFullName());
-		labelAge.setText(String.valueOf(getAge(user.getDateOfBirth())));
-		labelEmail.setText(user.getEmail());
-		labelPhone.setText(ModelUtil.phoneFormat(user.getPhone()));
-		labelContractNumber.setText(ModelUtil.contractNumberFormat(user.getContractNumber()));
-		labelDateOfBirth.setText(sdf.format(user.getDateOfBirth()));
+		labelId.setText(String.valueOf(loggedInUser.getId()));
+		labelFullName.setText(loggedInUser.getFullName());
+		labelAge.setText(String.valueOf(getAge(loggedInUser.getDateOfBirth())));
+		labelEmail.setText(loggedInUser.getEmail());
+		labelPhone.setText(ModelUtil.phoneFormat(loggedInUser.getPhone()));
+		labelContractNumber.setText(ModelUtil.contractNumberFormat(loggedInUser.getContractNumber()));
+		labelDateOfBirth.setText(sdf.format(loggedInUser.getDateOfBirth()));
 	}
 
 	public int getAge(Date dateOfBirth) {

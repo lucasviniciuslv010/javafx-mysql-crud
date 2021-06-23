@@ -55,7 +55,7 @@ public class BrandListController implements Initializable, DataChangeListener {
 		Stage parentStage = GUILoader.currentStage(event);
 		GUILoader.createDialogForm("Enter car brand data", obj, "BrandForm.fxml", parentStage,
 				(BrandFormController controller) -> {
-					controller.setEntity(obj);
+					controller.setMyBrand(obj);
 					controller.setService(new BrandService());
 					controller.subscribeDataChangeListener(this);
 					controller.updateFormData();
@@ -115,7 +115,7 @@ public class BrandListController implements Initializable, DataChangeListener {
 				button.setOnAction(
 						event -> GUILoader.createDialogForm("Enter brand data", obj, "BrandForm.fxml",
 								GUILoader.currentStage(event), (BrandFormController controller) -> {
-									controller.setEntity(obj);
+									controller.setMyBrand(obj);
 									controller.setService(new BrandService());
 									controller.subscribeDataChangeListener(listener);
 									controller.updateFormData();

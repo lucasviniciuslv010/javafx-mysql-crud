@@ -33,10 +33,12 @@ public class App extends Application {
 			
 			mainScene = new Scene(scrollPane);
 			
+			JPAUtil.initEntityManagerFactory();
+			GUILoader.addBackgroundImage("src//main//resources//images//background.png");
+			
 			primaryStage.setTitle("Sample JavaFX Application");
 			primaryStage.setScene(mainScene);
 			primaryStage.setResizable(true);
-			GUILoader.addBackgroundImage("src//main//resources//images//background.png");
 			primaryStage.show();
 		} catch (IOException e) {
 			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);

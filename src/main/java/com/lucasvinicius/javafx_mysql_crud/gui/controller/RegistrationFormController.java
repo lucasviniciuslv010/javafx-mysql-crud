@@ -33,7 +33,7 @@ public class RegistrationFormController implements Initializable, DialogForm {
 	
 	private Scene myScene;
 	
-	private User user;
+	private User myUser;
 	
 	private UserService service;
 	
@@ -64,7 +64,7 @@ public class RegistrationFormController implements Initializable, DialogForm {
 		}
 		try {
 			User obj = getFormData();
-			updateUser(obj);
+			updateMyEntity(obj);
 			service.save(obj);
 			notifyDataChangeListener();
 			GUILoader.currentStage(event).close();
@@ -81,8 +81,8 @@ public class RegistrationFormController implements Initializable, DialogForm {
 		this.service = service;
 	}
 	
-	public void setUser(User user) {
-		this.user = user;
+	public void setMyUser(User myUser) {
+		this.myUser = myUser;
 	}
 	
 	@Override
@@ -189,19 +189,19 @@ public class RegistrationFormController implements Initializable, DialogForm {
 	}
 	
 	public void updateFormData() {
-		if (user == null) {
-			throw new IllegalStateException("User was null");
+		if (myUser == null) {
+			throw new IllegalStateException("Entity was null");
 		}
-		txtId.setText(String.valueOf(user.getId()));
-		txtFullName.setText(user.getFullName());
-		txtContractNumber.setText(user.getContractNumber());
-		txtEmail.setText(user.getEmail());
-		if (user.getDateOfBirth() != null) {
-			dpDateOfBirth.setValue(LocalDate.ofInstant(user.getDateOfBirth().toInstant(), ZoneId.systemDefault()));
+		txtId.setText(String.valueOf(myUser.getId()));
+		txtFullName.setText(myUser.getFullName());
+		txtContractNumber.setText(myUser.getContractNumber());
+		txtEmail.setText(myUser.getEmail());
+		if (myUser.getDateOfBirth() != null) {
+			dpDateOfBirth.setValue(LocalDate.ofInstant(myUser.getDateOfBirth().toInstant(), ZoneId.systemDefault()));
 		}
-		txtPhone.setText(user.getPhone());
-		passwordField.setText(user.getPassword());
-		passwordFieldConfirm.setText(user.getPassword());
+		txtPhone.setText(myUser.getPhone());
+		passwordField.setText(myUser.getPassword());
+		passwordFieldConfirm.setText(myUser.getPassword());
 		
 		if (txtId.getText() != null && !(txtId.getText().trim().equals(""))) {
 			txtContractNumber.setEditable(false);
@@ -243,11 +243,11 @@ public class RegistrationFormController implements Initializable, DialogForm {
 		return false;
 	}
 	
-	public void updateUser(User obj) {
-		user.setFullName(obj.getFullName());
-		user.setEmail(obj.getEmail());
-		user.setDateOfBirth(obj.getDateOfBirth());
-		user.setPhone(obj.getPhone());
+	public void updateMyEntity(User obj) {
+		myUser.setFullName(obj.getFullName());
+		myUser.setEmail(obj.getEmail());
+		myUser.setDateOfBirth(obj.getDateOfBirth());
+		myUser.setPhone(obj.getPhone());
 	}
 	
 }

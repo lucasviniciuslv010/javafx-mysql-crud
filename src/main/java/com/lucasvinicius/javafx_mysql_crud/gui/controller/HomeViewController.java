@@ -1,8 +1,6 @@
   package com.lucasvinicius.javafx_mysql_crud.gui.controller;
 
-import java.net.URL;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import com.lucasvinicius.javafx_mysql_crud.gui.GUILoader;
 import com.lucasvinicius.javafx_mysql_crud.gui.util.Alerts;
@@ -12,13 +10,12 @@ import com.lucasvinicius.javafx_mysql_crud.services.ModelService;
 import com.lucasvinicius.javafx_mysql_crud.services.UserService;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 
-public class HomeViewController implements Initializable {
+public class HomeViewController {
 
-	private User user;
+	private User loggedInUser;
 	
 	@FXML
 	private MenuItem menuItemHome;
@@ -31,13 +28,9 @@ public class HomeViewController implements Initializable {
 	@FXML
 	private MenuItem menuItemDisconnect;
 	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-	}
-	
 	public void onMenuItemHomeAction() {
 		GUILoader.loadView("HomeView.fxml", (HomeViewController controller) -> {
-			controller.setUser(user);
+			controller.setLoggedInUser(loggedInUser);
 			GUILoader.addBackgroundImage("src//main//resources//images//cars.png");
 		});
 	}
@@ -60,7 +53,7 @@ public class HomeViewController implements Initializable {
 	
 	public void onMenuItemPersonalInformationAction() {
 		GUILoader.loadView("PersonalInformationView.fxml", (PersonalInformationController controller) -> {
-			controller.setUser(user);
+			controller.setLoggedInUser(loggedInUser);
 			controller.updateLabels();
 			GUILoader.addBackgroundImage("src//main//resources//images//background.png");
 		});
@@ -77,8 +70,8 @@ public class HomeViewController implements Initializable {
 		}
 	}
 	
-	public void setUser(User user) {
-		this.user = user;
+	public void setLoggedInUser(User loggedInUser) {
+		this.loggedInUser = loggedInUser;
 	}
 	
 }

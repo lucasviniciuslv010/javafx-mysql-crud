@@ -69,7 +69,7 @@ public class ModelListController implements Initializable, DataChangeListener {
 		Stage parentStage = GUILoader.currentStage(event);
 		GUILoader.createDialogForm("Enter car model data", obj, "ModelForm.fxml", parentStage,
 				(ModelFormController controller) -> {
-					controller.setEntity(obj);
+					controller.setMyModel(obj);
 					controller.setServices(new ModelService(), new BrandService());
 					controller.updateComboBoxBrand();
 					controller.updateFormData();
@@ -138,7 +138,7 @@ public class ModelListController implements Initializable, DataChangeListener {
 				button.setOnAction(event -> GUILoader.createDialogForm("Enter car model data", obj,
 						"ModelForm.fxml", GUILoader.currentStage(event),
 						(ModelFormController controller) -> {
-							controller.setEntity(obj);
+							controller.setMyModel(obj);
 							controller.setServices(new ModelService(), new BrandService());
 							controller.updateComboBoxBrand();
 							controller.updateFormData();
@@ -173,7 +173,7 @@ public class ModelListController implements Initializable, DataChangeListener {
 		});
 	}
 
-	public void removeEntity(com.lucasvinicius.javafx_mysql_crud.model.Model obj) {
+	public void removeEntity(Model obj) {
 		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Are you sure to delete?");
 
 		if (result.get() == ButtonType.OK) {

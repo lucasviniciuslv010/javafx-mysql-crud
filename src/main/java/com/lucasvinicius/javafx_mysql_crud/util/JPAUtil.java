@@ -13,7 +13,15 @@ public class JPAUtil {
 		try {
 			emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		} catch (RuntimeException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Failed to load EntityManagerFactory.");
+		}
+	}
+	
+	public static void initEntityManagerFactory() {
+		try {
+			emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+		} catch (RuntimeException e) {
+			throw new RuntimeException("Failed to load EntityManagerFactory.");
 		}
 	}
 	

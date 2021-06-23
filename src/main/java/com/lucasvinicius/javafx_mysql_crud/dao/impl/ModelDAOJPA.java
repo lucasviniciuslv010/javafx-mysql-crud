@@ -17,9 +17,8 @@ public class ModelDAOJPA extends AbstractDAOJPA<Model, Long> implements ModelDAO
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Model> findByName(String name) {
-		String jpql = "SELECT m FROM Model m WHERE m.name like :name";
-		Query query = getPersistenceContext().createQuery(jpql, Model.class);
-		query.setParameter("name", name.concat("%"));
+		String sql = "SELECT * FROM tb_model WHERE name = '" + name + "'";
+		Query query = getPersistenceContext().createNativeQuery(sql, Model.class);
 		return (List<Model>) query.getResultList();
 	}
 

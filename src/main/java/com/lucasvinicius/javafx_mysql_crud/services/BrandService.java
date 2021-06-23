@@ -90,6 +90,7 @@ public class BrandService {
 			try {
 				brand = dao.findByName(name);
 			} catch (RuntimeException e) {
+				e.printStackTrace();
 				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();

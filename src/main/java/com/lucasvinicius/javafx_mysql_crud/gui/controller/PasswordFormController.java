@@ -1,8 +1,6 @@
 package com.lucasvinicius.javafx_mysql_crud.gui.controller;
 
-import java.net.URL;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 import com.lucasvinicius.javafx_mysql_crud.gui.GUILoader;
 import com.lucasvinicius.javafx_mysql_crud.gui.exceptions.ValidationException;
@@ -11,17 +9,16 @@ import com.lucasvinicius.javafx_mysql_crud.services.UserService;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 
-public class PasswordFormController implements Initializable, DialogForm {
+public class PasswordFormController implements DialogForm {
 	
 	private Scene myScene;
 	
-	private User user;
+	private User myUser;
 	
 	private UserService service;
 	
@@ -32,15 +29,11 @@ public class PasswordFormController implements Initializable, DialogForm {
 	@FXML
 	private Button btSave, btCancel;
 	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-	}
-	
 	public void onBtSaveAction(ActionEvent event) {
 		try {
 			User obj = getFormData();
-			updateUser(obj);
-			service.save(user);
+			updateMyUser(obj);
+			service.save(myUser);
 			GUILoader.currentStage(event).close();
 		} catch (ValidationException e) {
 			setErrorMessage(e.getErrors());
@@ -64,8 +57,8 @@ public class PasswordFormController implements Initializable, DialogForm {
 				? errors.get("newPasswordConfirm") : "");
 	}
 	
-	public void setUser(User user) {
-		this.user = user;
+	public void setMyUser(User myUser) {
+		this.myUser = myUser;
 	}
 	
 	@Override
@@ -83,7 +76,7 @@ public class PasswordFormController implements Initializable, DialogForm {
 		
 		User obj = new User();
 		
-		if (!(currentPassword.getText().equals(user.getPassword()))) {
+		if (!(currentPassword.getText().equals(myUser.getPassword()))) {
 			exception.addError("currentPassword", "Incorrect current password");
 		} else if (newPassword.getText() == null || newPassword.getText().trim().equals("")) {
 			exception.addError("newPassword", "The field cannot be empty");
@@ -101,8 +94,8 @@ public class PasswordFormController implements Initializable, DialogForm {
 		return obj;
 	}
 	
-	public void updateUser(User obj) {
-		user.setPassword(obj.getPassword());
+	public void updateMyUser(User obj) {
+		myUser.setPassword(obj.getPassword());
 	}
 	
 }

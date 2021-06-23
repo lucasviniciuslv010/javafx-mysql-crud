@@ -34,10 +34,16 @@ public class GUILoader {
 		try {
 			FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
 			Parent parent = loader.load();
-
+			
+			// Reference to a new VBox
 			VBox newVBox = null;
+			// Reference to main VBox
 			VBox mainVBox = (VBox) ((ScrollPane) App.getMainScene().getRoot()).getContent();
 
+			/** 
+			 * Check if the FXML is rooted with JScrollPane. 
+			 * If yes, go to ScrollPane to get the VBOX 
+			 */
 			if (parent instanceof ScrollPane) {
 				newVBox = (VBox) ((ScrollPane) parent).getContent();
 			} else {
@@ -46,15 +52,20 @@ public class GUILoader {
 
 			((ScrollPane) App.getMainScene().getRoot()).setContent(newVBox);
 
-			/* Check if it will be necessary to use the previous menu bar */
+			/* 
+			 * Check if it will be necessary to use the previous menu bar
+			 * LoginView.fxml and HomeView.fxml already have a menu bar
+			 */
 			if (!(loader.getController() instanceof LoginViewController)
 					&& !(loader.getController() instanceof HomeViewController)) {
 
 				MenuBar mainMenuBar = (MenuBar) mainVBox.getChildren().get(0);
 				((VBox) ((ScrollPane) App.getMainScene().getRoot()).getContent()).getChildren().add(0, mainMenuBar);
 			}
-
+			
 			T controller = loader.getController();
+			
+			// Using the consumer to manage view dependencies
 			controllerDependencyInjector.accept(controller);
 		} catch (IOException e) {
 			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
@@ -70,6 +81,8 @@ public class GUILoader {
 			Stage newStage = new Stage();
 			Scene newScene = new Scene(anchorPane);
 
+			/* The form knows which scene it is in
+			 * Use this to add visual items to the form. (Ex. images) */
 			((DialogForm) loader.getController()).setMyScene(newScene);
 
 			T controller = loader.getController();
@@ -86,6 +99,7 @@ public class GUILoader {
 		}
 	}
 
+	/* Adding a background to the scene (Ex. image.png) */
 	public static void addBackgroundImage(String imagePath) {
 		try {
 			FileInputStream stream = new FileInputStream(imagePath);
@@ -106,6 +120,7 @@ public class GUILoader {
 		}
 	}
 
+	/* Adding image at any position in the scene */
 	public static void addImage(Scene scene, String imagePath, Double width, Double height, Double leftAnchor,
 			Double topAnchor, Double rightAnchor, Double bottomAnchor) {
 		try {
@@ -131,6 +146,7 @@ public class GUILoader {
 		}
 	}
 	
+	/* Returning the parent stage through an event */
 	public static Stage currentStage(ActionEvent event) {
 		return (Stage) ((Node) event.getSource()).getScene().getWindow();
 	}

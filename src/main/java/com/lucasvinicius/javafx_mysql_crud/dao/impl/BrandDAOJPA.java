@@ -1,6 +1,7 @@
 package com.lucasvinicius.javafx_mysql_crud.dao.impl;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.lucasvinicius.javafx_mysql_crud.dao.BrandDAO;
@@ -14,10 +15,13 @@ public class BrandDAOJPA extends AbstractDAOJPA<Brand, Long> implements BrandDAO
 
 	@Override
 	public Brand findByName(String name) {
-		String jpql = "SELECT b FROM Brand b WHERE b.name like :name";
-		Query query = getPersistenceContext().createQuery(jpql, Brand.class);
-		query.setParameter("name", name.concat("%"));
-		return (Brand) query.getSingleResult();
+		try {
+			String sql = "SELECT * FROM tb_brand WHERE name = '" + name + "'";
+			Query query = getPersistenceContext().createNativeQuery(sql, Brand.class);
+			return (Brand) query.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 
 }

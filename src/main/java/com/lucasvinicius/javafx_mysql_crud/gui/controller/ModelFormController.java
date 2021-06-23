@@ -32,7 +32,7 @@ public class ModelFormController implements Initializable, DialogForm {
 
 	private Scene myScene;
 	
-	private Model entity;
+	private Model myModel;
 
 	private ModelService service;
 
@@ -70,8 +70,8 @@ public class ModelFormController implements Initializable, DialogForm {
 			} else if (brandService == null) {
 				throw new IllegalStateException("BrandService was null");
 			}
-			Model model = getFormData();
-			service.save(model);
+			Model obj = getFormData();
+			service.save(obj);
 			notifyDataChangeListener();
 			GUILoader.currentStage(event).close();
 		} catch (ValidationException e) {
@@ -83,8 +83,8 @@ public class ModelFormController implements Initializable, DialogForm {
 		GUILoader.currentStage(event).close();
 	}
 
-	public void setEntity(Model entity) {
-		this.entity = entity;
+	public void setMyModel(Model myModel) {
+		this.myModel = myModel;
 	}
 
 	public void setServices(ModelService service, BrandService brandService) {
@@ -112,17 +112,19 @@ public class ModelFormController implements Initializable, DialogForm {
 		labelErrorCar.setText(errors.containsKey("car") ? errors.get("car") : "");
 	}
 
+	/* Providing 2 types of status for the car */
 	public void statusList() {
 		String[] arrayStatus = { "New", "Used" };
 		obsListString = FXCollections.observableArrayList(arrayStatus);
 		comboBoxStatus.setItems(obsListString);
 	}
 
+	/* Provide 8 types of car category */
 	public void bodyworkList() {
 		List<String> list = new ArrayList<String>();
 		list.add("Hatchback");
 		list.add("Crossover");
-		list.add("Coup�");
+		list.add("Cupê");
 		list.add("Sport");
 		list.add("Jeep");
 		list.add("Pickup Truck");
@@ -181,7 +183,7 @@ public class ModelFormController implements Initializable, DialogForm {
 			exception.addError("brand", "Select car brand");
 		model.setBrand(comboBoxBrand.getSelectionModel().getSelectedItem());
 
-		if (checkCarUser(txtName.getText(), model))
+		if (checkDuplicity(txtName.getText(), model))
 			exception.addError("car", "Car already registered");
 
 		if (exception.getErrors().size() > 0)
@@ -191,25 +193,25 @@ public class ModelFormController implements Initializable, DialogForm {
 	}
 
 	public void updateFormData() {
-		if (entity == null) {
+		if (myModel == null) {
 			throw new IllegalStateException("Entity was null");
 		}
 		Locale.setDefault(Locale.US);
 
-		txtId.setText(String.valueOf(entity.getId()));
+		txtId.setText(String.valueOf(myModel.getId()));
 		txtId.setOpacity(0.5);
-		txtName.setText(entity.getName());
-		txtPrice.setText(String.format("%.2f", entity.getPrice()));
-		txtYear.setText(entity.getYear());
-		if (entity.getStatus() != null)
-			comboBoxStatus.setValue(entity.getStatus());
-		if (entity.getBodywork() != null)
-			comboBoxBodywork.setValue(entity.getBodywork());
-		if (entity.getBrand() != null)
-			comboBoxBrand.setValue(entity.getBrand());
+		txtName.setText(myModel.getName());
+		txtPrice.setText(String.format("%.2f", myModel.getPrice()));
+		txtYear.setText(myModel.getYear());
+		if (myModel.getStatus() != null)
+			comboBoxStatus.setValue(myModel.getStatus());
+		if (myModel.getBodywork() != null)
+			comboBoxBodywork.setValue(myModel.getBodywork());
+		if (myModel.getBrand() != null)
+			comboBoxBrand.setValue(myModel.getBrand());
 	}
 
-	public boolean checkCarUser(String carName, Model model) {
+	public boolean checkDuplicity(String carName, Model model) {
 		List<Model> result = service.findByName(carName);
 		if (result.size() > 0) {
 			for (Model m : result) {

@@ -4,7 +4,7 @@ import javafx.scene.Scene;
 
 public interface DialogForm {
 
-	void setMyScene(Scene myScene);
 	Scene getMyScene();
+	void setMyScene(Scene myScene);
 	
 }

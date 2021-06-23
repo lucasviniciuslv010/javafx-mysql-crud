@@ -10,6 +10,7 @@ import com.lucasvinicius.javafx_mysql_crud.gui.GUILoader;
 import com.lucasvinicius.javafx_mysql_crud.gui.exceptions.ValidationException;
 import com.lucasvinicius.javafx_mysql_crud.gui.listeners.DataChangeListener;
 import com.lucasvinicius.javafx_mysql_crud.gui.util.Constraints;
+import com.lucasvinicius.javafx_mysql_crud.gui.util.ViewUtil;
 import com.lucasvinicius.javafx_mysql_crud.model.Brand;
 import com.lucasvinicius.javafx_mysql_crud.services.BrandService;
 import com.lucasvinicius.javafx_mysql_crud.util.ModelUtil;
@@ -26,7 +27,7 @@ public class BrandFormController implements Initializable, DialogForm {
 
 	private Scene myScene;
 	
-	private Brand entity;
+	private Brand myBrand;
 	
 	private BrandService service;
 	
@@ -70,8 +71,8 @@ public class BrandFormController implements Initializable, DialogForm {
 		this.service = service;
 	}
 	
-	public void setEntity(Brand entity) {
-		this.entity = entity;
+	public void setMyBrand(Brand myBrand) {
+		this.myBrand = myBrand;
 	}
 	
 	@Override
@@ -83,16 +84,21 @@ public class BrandFormController implements Initializable, DialogForm {
 	public Scene getMyScene() {
 		return this.myScene;
 	}
+	
 	public void subscribeDataChangeListener(DataChangeListener listener) {
 		listeners.add(listener);
 	}
 	
+	/* Notifies listeners that the data being shown to the user has been updated */
 	public void notifyDataChangeListener() {
 		for (DataChangeListener listener : listeners) {
 			listener.onDataChanged();
 		}
 	} 
 	
+	/* Returning an object with the data that was filled in the form 
+	 * Throws ValidationException if any data is invalid 
+	 */
 	public Brand getFormData() throws ValidationException {
 		ValidationException exception = new ValidationException("Validation error");
 		
@@ -102,10 +108,10 @@ public class BrandFormController implements Initializable, DialogForm {
 		
 		if (txtName.getText() == null || txtName.getText().trim().equals(""))
 			exception.addError("name", "The field cannot be empty");
-		if (checkBrand(txtName.getText()))
+		if (checkDuplicity(txtName.getText()))
 			exception.addError("name", "This brand already exists");
 		
-		obj.setName(txtName.getText());
+		obj.setName(ViewUtil.toTitledCase(txtName.getText()));
 		
 		if (exception.getErrors().size() > 0)
 			throw exception;
@@ -113,22 +119,32 @@ public class BrandFormController implements Initializable, DialogForm {
 		return obj;
 	}
 	
+	/* Fill in the form with my entity data */
 	public void updateFormData () {
-		if (entity == null) {
+		if (myBrand == null) {
 			throw new IllegalStateException("Entity was null");
 		}
-		txtId.setText(String.valueOf(entity.getId()));
-		txtName.setText(entity.getName());
+		txtId.setText(String.valueOf(myBrand.getId()));
+		txtName.setText(myBrand.getName());
 	}
 	
-	public boolean checkBrand(String name) {
+	/* Checks if there is already a car brand with that name in the database 
+	 * to avoid duplication
+	 */
+	public boolean checkDuplicity(String name) {
 		if (service == null) {
 			throw new IllegalStateException("Service was null");
 		}
 		Brand result = service.findByName(name);
-		return result != null;
+		if (result != null && !(result.getId().equals(myBrand.getId()))) {
+			return true;
+		}
+		return false;
 	}
 	
+	/* Sets an error message to an invalid field 
+	 * Error messages are in the getFormData method 
+	 */
 	public void setErrorMessage(Map<String, String> errors) {
 		labelErrorName.setText(errors.containsKey("name") ? errors.get("name") : "");
 	}

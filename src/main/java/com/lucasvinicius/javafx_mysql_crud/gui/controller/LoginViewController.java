@@ -45,7 +45,7 @@ public class LoginViewController implements Initializable {
 	}
 
 	public void onMenuItemLoginAction() {
-		GUILoader.loadView("LoginView.fxml", (LoginViewController controller) -> {
+			GUILoader.loadView("LoginView.fxml", (LoginViewController controller) -> {
 			controller.setService(new UserService());
 			GUILoader.addBackgroundImage("src//main//resources//images//background.png");
 		});
@@ -58,11 +58,13 @@ public class LoginViewController implements Initializable {
 	}
 
 	public void onBtSignInAction() {
-		if (validateEmailAndPassword(txtEmailAddress.getText(), passwordField.getText()))
-			GUILoader.loadView("HomeView.fxml", (HomeViewController controller) -> {
-				controller.setUser(service.findByEmail(txtEmailAddress.getText()));
+		if (validateEmailAndPassword()) {
+				GUILoader.loadView("HomeView.fxml", (HomeViewController controller) -> {
+				User loggedInUser = service.findByEmail(txtEmailAddress.getText());
+				controller.setLoggedInUser(loggedInUser);
 				GUILoader.addBackgroundImage("src//main//resources//images//cars.png");
 			});
+		}
 	}
 
 	public void onBtSignUpAction(ActionEvent event) {
@@ -71,26 +73,27 @@ public class LoginViewController implements Initializable {
 		GUILoader.createDialogForm("Enter employee data", obj, "RegistrationForm.fxml", parentStage,
 				(RegistrationFormController controller) -> {
 					controller.setService(new UserService());
-					controller.setUser(obj);
+					controller.setMyUser(obj);
 					controller.updateFormData();
 					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//badge.png", 
 							240.0, 240.0, 430.0, 0.0, 0.0, 170.0);
 				});
 	}
 
-	public boolean validateEmailAndPassword(String email, String password) {
+	/* Checking if the email and password match what is in the database */
+	public boolean validateEmailAndPassword() {
 		if (service == null) {
 			throw new IllegalStateException("Service was null");
 		}
 
-		User user = service.findByEmail(email);
+		User user = service.findByEmail(txtEmailAddress.getText());
 
 		if (user == null) {
 			labelErrorPassword.setText("");
 			labelErrorEmail.setText("Email address invalid");
 			return false;
 		}
-		if (!(user.getPassword().equals(password))) {
+		if (!(user.getPassword().equals(passwordField.getText()))) {
 			labelErrorEmail.setText("");
 			labelErrorPassword.setText("Incorrect password");
 			return false;

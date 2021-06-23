@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.HomeViewController">
+   <children>
+      <MenuBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="798.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Home page">
+            <items>
+              <MenuItem fx:id="menuItemHome" mnemonicParsing="false" onAction="#onMenuItemHomeAction" text="Home" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Cars">
+            <items>
+              <MenuItem fx:id="menuItemModels" mnemonicParsing="false" onAction="#onMenuItemModelsAction" text="Models" />
+                  <MenuItem fx:id="menuItemBrands" mnemonicParsing="false" onAction="#onMenuItemBrandsAction" text="Brands" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem fx:id="menuItemPersonalInformation" mnemonicParsing="false" onAction="#onMenuItemPersonalInformationAction" text="Personal information" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Exit">
+              <items>
+                <MenuItem fx:id="menuItemDisconnect" mnemonicParsing="false" onAction="#onMenuItemDisconnectAction" text="Disconnect" />
+              </items>
+            </Menu>
+        </menus>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MenuBar>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="797.0" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

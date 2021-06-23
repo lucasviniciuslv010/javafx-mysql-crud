@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.AboutController">
+   <children>
+      <AnchorPane VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="About" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="25.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Application JavaFX demo" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="textArea" layoutY="108.0" prefHeight="339.0" prefWidth="773.0" text="&#9;&#10;&#9;This project is a demonstration of a desktop application using JavaFX, JPA (Java Persistence API) technologies with Hibernate and Maven. Created with the sole purpose of improving my logic and creativity, the application consists of registering car brands and models available for sale in a store, in addition to being able to recover, update and remove any of these elements. The project was totally developed by me without any pre-planning and everything was done according to the needs that were arising during its implementation.&#10;&#10;### Implementation details&#10;Technologies used in the implementation:&#10;&#10;* JavaFX: Library used to develop applications with graphical interfaces in Java;&#10;* JPA: High-level API used for the Object Relational Mapper (ORM) in java;&#10;* Hibernate: JPA provider, responsible for resolving ORM;&#10;* MySQL: Relational database manager;&#10;* Maven: Tool developed by Apache used to manage dependencies and automate your builds;&#10;&#10;### Minimum requirements&#10;&#10;* IDE - Eclipse version 4.18.0 (I recommend using the latest version);&#10;* JavaFX plugin - http://download.eclipse.org/efxclipse/updates-released/3.4.1/site/&#10;* JavaFX library - Version 11.0 (test on other versions, if you prefer);&#10;* MySQL - Create a relational database with a name of your choice and change the URL in the persistence.xml file to match your database address information (be sure to confirm your database username and password, in addition to changing the driver and also the dialect if necessary);&#10;&#10;* File license / Image rights *&#10;The images used in this project were taken from the website:&#10;&#10;-&gt; https://pt.pngtree.com/&#10;-&gt; https://www.gratispng.com/&#10;&#10;images&#10;&#10;medusa png de:&#10;-&gt;  pt.pngtree.com&#10;&#10;abstract png de:&#10;-&gt;  pt.pngtree.com&#10;&#10;a acessibilidade png de:&#10;-&gt; pt.pngtree.com&#10;&#10;https://www.gratispng.com/png-z9thwk/&#10;https://www.gratispng.com/png-rdjhs5/&#10;https://www.gratispng.com/png-xs885h/" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></TextArea>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.HomeViewController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.HomeViewController">
    <children>
-      <MenuBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="798.0">
+      <MenuBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="848.0" VBox.vgrow="ALWAYS">
         <menus>
           <Menu mnemonicParsing="false" text="Home page">
             <items>
@@ -37,6 +37,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </MenuBar>
-      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="797.0" VBox.vgrow="ALWAYS" />
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="848.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

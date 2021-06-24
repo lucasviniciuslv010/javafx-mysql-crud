@@ -32,7 +32,7 @@ public class ModelFormController implements Initializable, DialogForm {
 
 	private Scene myScene;
 	
-	private Model myModel;
+	private Model myEntity;
 
 	private ModelService service;
 
@@ -83,8 +83,8 @@ public class ModelFormController implements Initializable, DialogForm {
 		GUILoader.currentStage(event).close();
 	}
 
-	public void setMyModel(Model myModel) {
-		this.myModel = myModel;
+	public void setMyEntity(Model myEntity) {
+		this.myEntity = myEntity;
 	}
 
 	public void setServices(ModelService service, BrandService brandService) {
@@ -193,22 +193,22 @@ public class ModelFormController implements Initializable, DialogForm {
 	}
 
 	public void updateFormData() {
-		if (myModel == null) {
+		if (myEntity == null) {
 			throw new IllegalStateException("Entity was null");
 		}
 		Locale.setDefault(Locale.US);
 
-		txtId.setText(String.valueOf(myModel.getId()));
+		txtId.setText(String.valueOf(myEntity.getId()));
 		txtId.setOpacity(0.5);
-		txtName.setText(myModel.getName());
-		txtPrice.setText(String.format("%.2f", myModel.getPrice()));
-		txtYear.setText(myModel.getYear());
-		if (myModel.getStatus() != null)
-			comboBoxStatus.setValue(myModel.getStatus());
-		if (myModel.getBodywork() != null)
-			comboBoxBodywork.setValue(myModel.getBodywork());
-		if (myModel.getBrand() != null)
-			comboBoxBrand.setValue(myModel.getBrand());
+		txtName.setText(myEntity.getName());
+		txtPrice.setText(String.format("%.2f", myEntity.getPrice()));
+		txtYear.setText(myEntity.getYear());
+		if (myEntity.getStatus() != null)
+			comboBoxStatus.setValue(myEntity.getStatus());
+		if (myEntity.getBodywork() != null)
+			comboBoxBodywork.setValue(myEntity.getBodywork());
+		if (myEntity.getBrand() != null)
+			comboBoxBrand.setValue(myEntity.getBrand());
 	}
 
 	public boolean checkDuplicity(String carName, Model model) {

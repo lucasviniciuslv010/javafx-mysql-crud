@@ -19,11 +19,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.LoginViewController">
+<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.LoginViewController">
    <content>
-      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="797.0">
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="848.0">
          <children>
-            <MenuBar accessibleRole="BUTTON" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="798.0">
+            <MenuBar accessibleRole="BUTTON" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="848.0">
               <menus>
                   <Menu mnemonicParsing="false" text="Login page">
                     <items>
@@ -45,11 +45,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuBar>
-            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="798.0" VBox.vgrow="ALWAYS">
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="848.0" VBox.vgrow="ALWAYS">
                <children>
-                  <StackPane layoutY="79.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <StackPane layoutY="79.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <GridPane alignment="CENTER" maxHeight="255.0" maxWidth="200.0" StackPane.alignment="CENTER">
+                        <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="200.0" StackPane.alignment="CENTER">
                           <columnConstraints>
                             <ColumnConstraints />
                           </columnConstraints>
@@ -65,14 +65,14 @@
                            <children>
                               <Label fx:id="labelErrorEmail">
                                  <padding>
-                                    <Insets left="30.0" />
+                                    <Insets left="20.0" />
                                  </padding>
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font></Label>
                               <Label fx:id="labelErrorPassword">
                                  <padding>
-                                    <Insets left="35.0" />
+                                    <Insets left="27.0" />
                                  </padding>
                                  <font>
                                     <Font name="System Bold" size="13.0" />

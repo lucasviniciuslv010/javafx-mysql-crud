@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.PersonalInformationController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.PersonalInformationController">
    <children>
-      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="797.0" VBox.vgrow="ALWAYS">
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="848.0" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -46,66 +46,68 @@
                         <Insets left="20.0" />
                      </padding>
                   </ToolBar>
-                  <GridPane prefHeight="315.0" prefWidth="752.0">
+                  <GridPane VBox.vgrow="ALWAYS">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="250.0" prefWidth="250.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="40.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="-Infinity" minHeight="45.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="-Infinity" minHeight="45.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="-Infinity" minHeight="45.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="-Infinity" minHeight="45.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="45.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="45.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="-Infinity" minHeight="45.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="60.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="ALWAYS" />
+                      <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="ALWAYS" />
+                      <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="ALWAYS" />
+                      <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" vgrow="NEVER" />
                     </rowConstraints>
                      <children>
-                        <Label text="Id:">
+                        <Label text="Id:" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelId" GridPane.columnIndex="1" />
-                        <Label text="Full Name:" GridPane.rowIndex="1">
+                        <Label fx:id="labelId" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Full Name:" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelFullName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Age:" GridPane.rowIndex="2">
+                        <Label fx:id="labelFullName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Age:" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelAge" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Email:" GridPane.rowIndex="3">
+                        <Label fx:id="labelAge" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Email:" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="Phone:" GridPane.rowIndex="4">
+                        <Label fx:id="labelEmail" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Phone:" GridPane.rowIndex="5">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelPhone" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="Contract Number:" GridPane.rowIndex="5">
+                        <Label fx:id="labelPhone" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Contract Number:" GridPane.rowIndex="6">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelContractNumber" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="Date of Birth:" GridPane.rowIndex="6">
+                        <Label fx:id="labelContractNumber" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label text="Date of Birth:" GridPane.rowIndex="7">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelDateOfBirth" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="labelDateOfBirth" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                      </children>
                      <VBox.margin>
-                        <Insets left="23.0" right="250.0" top="40.0" />
+                        <Insets left="25.0" />
                      </VBox.margin>
                   </GridPane>
                </children>

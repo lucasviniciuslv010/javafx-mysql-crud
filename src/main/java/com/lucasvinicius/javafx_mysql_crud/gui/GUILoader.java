@@ -82,7 +82,8 @@ public class GUILoader {
 			Scene newScene = new Scene(anchorPane);
 
 			/* The form knows which scene it is in
-			 * Use this to add visual items to the form. (Ex. images) */
+			 * Use this to add visual items to the form. (Ex. images) 
+			 */
 			((DialogForm) loader.getController()).setMyScene(newScene);
 
 			T controller = loader.getController();

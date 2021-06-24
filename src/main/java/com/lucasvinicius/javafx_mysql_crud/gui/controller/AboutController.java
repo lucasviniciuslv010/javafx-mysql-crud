@@ -7,6 +7,7 @@ import com.lucasvinicius.javafx_mysql_crud.App;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
@@ -28,8 +29,8 @@ public class AboutController implements Initializable {
 	}
 	
 	public void textAreaPrefWidth() {
-		Stage mainStage = (Stage) App.getMainScene().getWindow();
-		textArea.prefWidthProperty().bind(mainStage.widthProperty());
+		Scene scene = App.getMainScene();
+		textArea.prefWidthProperty().bind(scene.widthProperty());
 	}
 	
 }

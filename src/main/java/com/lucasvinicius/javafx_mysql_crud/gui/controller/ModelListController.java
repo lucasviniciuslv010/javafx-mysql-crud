@@ -69,13 +69,13 @@ public class ModelListController implements Initializable, DataChangeListener {
 		Stage parentStage = GUILoader.currentStage(event);
 		GUILoader.createDialogForm("Enter car model data", obj, "ModelForm.fxml", parentStage,
 				(ModelFormController controller) -> {
-					controller.setMyModel(obj);
+					controller.setMyEntity(obj);
 					controller.setServices(new ModelService(), new BrandService());
 					controller.updateComboBoxBrand();
 					controller.updateFormData();
 					controller.subscribeDataChangeListener(this);
 					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//car.png", 
-							220.0, 215.0, 390.0, 120.0, 10.0, 60.0);
+							220.0, 215.0, 415.0, 120.0, 10.0, 60.0);
 				});
 	}
 
@@ -138,13 +138,13 @@ public class ModelListController implements Initializable, DataChangeListener {
 				button.setOnAction(event -> GUILoader.createDialogForm("Enter car model data", obj,
 						"ModelForm.fxml", GUILoader.currentStage(event),
 						(ModelFormController controller) -> {
-							controller.setMyModel(obj);
+							controller.setMyEntity(obj);
 							controller.setServices(new ModelService(), new BrandService());
 							controller.updateComboBoxBrand();
 							controller.updateFormData();
 							controller.subscribeDataChangeListener(listener);
 							GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//car.png", 
-									220.0, 215.0, 390.0, 120.0, 10.0, 60.0);
+									220.0, 215.0, 415.0, 120.0, 10.0, 60.0);
 						}));
 			}
 		});

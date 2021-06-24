@@ -53,27 +53,27 @@ public class ModelUtil {
 		return formattedContract;
 	}
 	
-	public static Integer tryParseInteger(String txtFieldValue) {
+	public static Integer tryParseInteger(String intStr) {
 		try {
-			int number = Integer.parseInt(txtFieldValue);
+			int number = Integer.parseInt(intStr);
 			return number;
 		} catch (NumberFormatException e) {
 			return null;
 		}
 	}
 
-	public static Double tryParseDouble(String txtFieldValue) {
+	public static Double tryParseDouble(String doubStr) {
 		try {
-			double number = Double.parseDouble(txtFieldValue);
+			double number = Double.parseDouble(doubStr);
 			return number;
 		} catch (NumberFormatException e) {
 			return null;
 		}
 	}
 
-	public static Long tryParseLong(String txtFieldValue) {
+	public static Long tryParseLong(String longStr) {
 		try {
-			long number = Long.parseLong(txtFieldValue);
+			long number = Long.parseLong(longStr);
 			return number;
 		} catch (NumberFormatException e) {
 			return null;

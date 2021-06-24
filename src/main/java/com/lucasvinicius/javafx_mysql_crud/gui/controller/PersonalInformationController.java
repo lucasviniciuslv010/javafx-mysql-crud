@@ -40,7 +40,7 @@ public class PersonalInformationController implements Initializable, DataChangeL
 		GUILoader.createDialogForm("Enter employee data", loggedInUser, "RegistrationForm.fxml", parentStage,
 				(RegistrationFormController controller) -> {
 					controller.setService(new UserService());
-					controller.setMyUser(loggedInUser);
+					controller.setMyEntity(loggedInUser);
 					controller.subscribeDataChangeListener(this);
 					controller.updateFormData();
 					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//badge.png", 
@@ -55,7 +55,7 @@ public class PersonalInformationController implements Initializable, DataChangeL
 					controller.setService(new UserService());
 					controller.setMyUser(loggedInUser);
 					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//padlock.png", 
-							140.0, 160.0, 475.0, 10.0, 15.0, 50.0);
+							140.0, 160.0, 500.0, 10.0, 15.0, 50.0);
 				});
 	}
 

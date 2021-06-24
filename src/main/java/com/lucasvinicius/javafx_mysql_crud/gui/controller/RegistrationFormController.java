@@ -33,7 +33,7 @@ public class RegistrationFormController implements Initializable, DialogForm {
 	
 	private Scene myScene;
 	
-	private User myUser;
+	private User myEntity;
 	
 	private UserService service;
 	
@@ -81,8 +81,8 @@ public class RegistrationFormController implements Initializable, DialogForm {
 		this.service = service;
 	}
 	
-	public void setMyUser(User myUser) {
-		this.myUser = myUser;
+	public void setMyEntity(User myEntity) {
+		this.myEntity = myEntity;
 	}
 	
 	@Override
@@ -189,19 +189,19 @@ public class RegistrationFormController implements Initializable, DialogForm {
 	}
 	
 	public void updateFormData() {
-		if (myUser == null) {
+		if (myEntity == null) {
 			throw new IllegalStateException("Entity was null");
 		}
-		txtId.setText(String.valueOf(myUser.getId()));
-		txtFullName.setText(myUser.getFullName());
-		txtContractNumber.setText(myUser.getContractNumber());
-		txtEmail.setText(myUser.getEmail());
-		if (myUser.getDateOfBirth() != null) {
-			dpDateOfBirth.setValue(LocalDate.ofInstant(myUser.getDateOfBirth().toInstant(), ZoneId.systemDefault()));
+		txtId.setText(String.valueOf(myEntity.getId()));
+		txtFullName.setText(myEntity.getFullName());
+		txtContractNumber.setText(myEntity.getContractNumber());
+		txtEmail.setText(myEntity.getEmail());
+		if (myEntity.getDateOfBirth() != null) {
+			dpDateOfBirth.setValue(LocalDate.ofInstant(myEntity.getDateOfBirth().toInstant(), ZoneId.systemDefault()));
 		}
-		txtPhone.setText(myUser.getPhone());
-		passwordField.setText(myUser.getPassword());
-		passwordFieldConfirm.setText(myUser.getPassword());
+		txtPhone.setText(myEntity.getPhone());
+		passwordField.setText(myEntity.getPassword());
+		passwordFieldConfirm.setText(myEntity.getPassword());
 		
 		if (txtId.getText() != null && !(txtId.getText().trim().equals(""))) {
 			txtContractNumber.setEditable(false);
@@ -244,10 +244,10 @@ public class RegistrationFormController implements Initializable, DialogForm {
 	}
 	
 	public void updateMyEntity(User obj) {
-		myUser.setFullName(obj.getFullName());
-		myUser.setEmail(obj.getEmail());
-		myUser.setDateOfBirth(obj.getDateOfBirth());
-		myUser.setPhone(obj.getPhone());
+		myEntity.setFullName(obj.getFullName());
+		myEntity.setEmail(obj.getEmail());
+		myEntity.setDateOfBirth(obj.getDateOfBirth());
+		myEntity.setPhone(obj.getPhone());
 	}
 	
 }

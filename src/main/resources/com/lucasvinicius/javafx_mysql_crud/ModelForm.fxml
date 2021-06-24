@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="387.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.ModelFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lucasvinicius.javafx_mysql_crud.gui.controller.ModelFormController">
    <children>
       <GridPane prefHeight="300.0" prefWidth="370.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="76.0" prefWidth="76.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="154.0" prefWidth="154.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="170.0" prefWidth="170.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="180.0" prefWidth="180.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="-Infinity" minHeight="20.0" prefHeight="40.0" vgrow="ALWAYS" />
@@ -101,7 +101,7 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <children>
-                  <Button fx:id="btSave" defaultButton="true" mnemonicParsing="false" onAction="#onBtSaveAction" prefHeight="25.0" prefWidth="49.0" text="Save">
+                  <Button fx:id="btSave" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtSaveAction" prefHeight="25.0" prefWidth="55.0" text="Save">
                      <HBox.margin>
                         <Insets top="9.0" />
                      </HBox.margin>
@@ -109,7 +109,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btCancel" cancelButton="true" mnemonicParsing="false" onAction="#onBtCancelAction" prefHeight="25.0" prefWidth="62.0" text="Cancel">
+                  <Button fx:id="btCancel" cancelButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtCancelAction" prefHeight="25.0" prefWidth="70.0" text="Cancel">
                      <HBox.margin>
                         <Insets top="9.0" />
                      </HBox.margin>

@@ -60,14 +60,14 @@
             <DatePicker fx:id="dpDateOfBirth" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label fx:id="labelErrorDateOfBirth" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="5.0" />
+                  <Insets left="7.0" />
                </GridPane.margin>
             </Label>
             <Label text="Phone" GridPane.rowIndex="5" />
             <TextField fx:id="txtPhone" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label fx:id="labelErrorPhone" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="5.0" />
+                  <Insets left="7.0" />
                </GridPane.margin>
             </Label>
             <Label text="Password" GridPane.rowIndex="6" />

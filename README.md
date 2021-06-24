@@ -15,8 +15,11 @@ Technologies used in the implementation:
 * JDK - Version 11.0.11 or higher; 
 * MySQL - Version 8.0.25 or higher; 
 
-#### Note 
+#### Note 1
 Create a relational database with a name of your choice and change the URL in the persistence.xml file to match your database address information. Be sure to confirm your database username and password, and change the dialect if necessary;
+
+#### Note 2
+To run the application for the first time, go to: Run as >>> Maven Build >>> Goals = clean javafx:run
 
 #### File license / Image rights
 The images used in this project were taken from the website:

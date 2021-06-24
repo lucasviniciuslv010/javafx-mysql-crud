@@ -96,13 +96,20 @@ public class RegistrationFormController implements Initializable, DialogForm {
 	}
 	
 	public void setErrorMessage(Map<String, String> errors) {
-		labelErrorFullName.setText(errors.containsKey("fullName") ? errors.get("fullName") : "");
-		labelErrorEmail.setText(errors.containsKey("email") ? errors.get("email") : "");
-		labelErrorDateOfBirth.setText(errors.containsKey("dateOfBirth") ? errors.get("dateOfBirth") : "");
-		labelErrorPhone.setText(errors.containsKey("phone") ? errors.get("phone") : "");
-		labelErrorPassword.setText(errors.containsKey("password") ? errors.get("password") : "");
-		labelErrorConfirmPassword.setText(errors.containsKey("confirmPassword") ? errors.get("confirmPassword") : "");
-		labelErrorContractNumber.setText(errors.containsKey("contractNumber") ? errors.get("contractNumber") : "");
+		labelErrorFullName.setText(errors.containsKey("fullName") 
+				? errors.get("fullName") : "");
+		labelErrorEmail.setText(errors.containsKey("email") 
+				? errors.get("email") : "");
+		labelErrorDateOfBirth.setText(errors.containsKey("dateOfBirth") 
+				? errors.get("dateOfBirth") : "");
+		labelErrorPhone.setText(errors.containsKey("phone") 
+				? errors.get("phone") : "");
+		labelErrorPassword.setText(errors.containsKey("password") 
+				? errors.get("password") : "");
+		labelErrorConfirmPassword.setText(errors.containsKey("confirmPassword") 
+				? errors.get("confirmPassword") : "");
+		labelErrorContractNumber.setText(errors.containsKey("contractNumber") 
+				? errors.get("contractNumber") : "");
 	}
 	
 	public void subscribeDataChangeListener(DataChangeListener listener) {
@@ -145,7 +152,8 @@ public class RegistrationFormController implements Initializable, DialogForm {
 		else if (txtContractNumber.getText().length() < 7) {
 			exception.addError("contractNumber", "Very short contract number");
 		} 
-		else if (!(checkContractNumber(txtContractNumber.getText(), ModelUtil.tryParseLong(txtId.getText())))) {
+		else if (!(checkContractNumber(txtContractNumber.getText(), 
+				ModelUtil.tryParseLong(txtId.getText())))) {
 			exception.addError("contractNumber", "Contract already registered");
 		} else {
 			obj.setContractNumber(txtContractNumber.getText());
@@ -164,11 +172,13 @@ public class RegistrationFormController implements Initializable, DialogForm {
 		if (dpDateOfBirth.getValue() == null) {
 			exception.addError("dateOfBirth", "Invalid date of birth");
 		} else {
-			Instant instant = Instant.from(dpDateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()));
+			Instant instant = Instant.from(dpDateOfBirth.getValue()
+					.atStartOfDay(ZoneId.systemDefault()));
 			obj.setDateOfBirth(Date.from(instant));
 		}
 		
-		if (txtPhone.getText() == null || txtPhone.getText().trim().equals("") || txtPhone.getText().length() < 11) {
+		if (txtPhone.getText() == null || txtPhone.getText().trim().equals("") 
+				|| txtPhone.getText().length() < 11) {
 			exception.addError("phone", "Invalid phone number");
 		}
 		obj.setPhone(txtPhone.getText());
@@ -197,7 +207,8 @@ public class RegistrationFormController implements Initializable, DialogForm {
 		txtContractNumber.setText(myEntity.getContractNumber());
 		txtEmail.setText(myEntity.getEmail());
 		if (myEntity.getDateOfBirth() != null) {
-			dpDateOfBirth.setValue(LocalDate.ofInstant(myEntity.getDateOfBirth().toInstant(), ZoneId.systemDefault()));
+			dpDateOfBirth.setValue(LocalDate.ofInstant(myEntity.getDateOfBirth()
+					.toInstant(), ZoneId.systemDefault()));
 		}
 		txtPhone.setText(myEntity.getPhone());
 		passwordField.setText(myEntity.getPassword());

@@ -47,8 +47,8 @@ public class ModelFormController implements Initializable, DialogForm {
 	@FXML
 	private ComboBox<Brand> comboBoxBrand;
 	@FXML
-	private Label labelErrorName, labelErrorPrice, labelErrorStatus, labelErrorBodywork, labelErrorBrand,
-			labelErrorYear, labelErrorCar;
+	private Label labelErrorName, labelErrorPrice, labelErrorStatus, 
+		labelErrorBodywork, labelErrorBrand, labelErrorYear, labelErrorCar;
 	@FXML
 	private Button btSave, btCancel;
 
@@ -103,13 +103,20 @@ public class ModelFormController implements Initializable, DialogForm {
 	}
 
 	public void setErrorMessage(Map<String, String> errors) {
-		labelErrorName.setText(errors.containsKey("name") ? errors.get("name") : "");
-		labelErrorPrice.setText(errors.containsKey("price") ? errors.get("price") : "");
-		labelErrorYear.setText(errors.containsKey("year") ? errors.get("year") : "");
-		labelErrorStatus.setText(errors.containsKey("status") ? errors.get("status") : "");
-		labelErrorBodywork.setText(errors.containsKey("bodywork") ? errors.get("bodywork") : "");
-		labelErrorBrand.setText(errors.containsKey("brand") ? errors.get("brand") : "");
-		labelErrorCar.setText(errors.containsKey("car") ? errors.get("car") : "");
+		labelErrorName.setText(errors.containsKey("name") 
+				? errors.get("name") : "");
+		labelErrorPrice.setText(errors.containsKey("price") 
+				? errors.get("price") : "");
+		labelErrorYear.setText(errors.containsKey("year") 
+				? errors.get("year") : "");
+		labelErrorStatus.setText(errors.containsKey("status") 
+				? errors.get("status") : "");
+		labelErrorBodywork.setText(errors.containsKey("bodywork") 
+				? errors.get("bodywork") : "");
+		labelErrorBrand.setText(errors.containsKey("brand") 
+				? errors.get("brand") : "");
+		labelErrorCar.setText(errors.containsKey("car") 
+				? errors.get("car") : "");
 	}
 
 	/* Providing 2 types of status for the car */
@@ -215,7 +222,8 @@ public class ModelFormController implements Initializable, DialogForm {
 		List<Model> result = service.findByName(carName);
 		if (result.size() > 0) {
 			for (Model m : result) {
-				if (m.getStatus().equals(model.getStatus()) && m.getYear().equals(model.getYear())
+				if (m.getStatus().equals(model.getStatus()) 
+						&& m.getYear().equals(model.getYear())
 						&& m.getBodywork().equals(model.getBodywork())
 						&& !m.getId().equals(ModelUtil.tryParseLong(txtId.getText()))) {
 					return true;

@@ -27,7 +27,8 @@ public class ModelService {
 				persistenceContext.getTransaction().commit();
 			} catch (RuntimeException e) {
 				persistenceContext.getTransaction().rollback();
-				Alerts.showAlert("Unexpected Error", "Error saving model", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error saving model", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -50,7 +51,8 @@ public class ModelService {
 				persistenceContext.getTransaction().commit();
 			} catch (RuntimeException e) {
 				persistenceContext.getTransaction().rollback();
-				Alerts.showAlert("Unexpected Error", "Error removing model", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error removing model", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -70,7 +72,8 @@ public class ModelService {
 			try {
 				model = dao.findById(id);
 			} catch (RuntimeException e) {
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -90,7 +93,8 @@ public class ModelService {
 			try {
 				models = dao.findByName(name);
 			} catch (RuntimeException e) {
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -107,7 +111,8 @@ public class ModelService {
 		try {
 			models = dao.findAll();
 		} catch (RuntimeException e) {
-			Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+			Alerts.showAlert("Unexpected Error", "Error fetching data", 
+					e.getMessage(), AlertType.ERROR);
 		} finally {
 			persistenceContext.close();
 		}

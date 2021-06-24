@@ -59,7 +59,8 @@ public class BrandListController implements Initializable, DataChangeListener {
 					controller.setService(new BrandService());
 					controller.subscribeDataChangeListener(this);
 					controller.updateFormData();
-					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//car.png", 
+					GUILoader.addImage(controller.getMyScene(), 
+							"src//main//resources//images//car.png", 
 							200.0, 200.0, 425.0, 0.0, 0.0, 0.0);
 				});
 	}
@@ -95,7 +96,8 @@ public class BrandListController implements Initializable, DataChangeListener {
 
 	/* add an update button on each table row */
 	public void initEditButtons(DataChangeListener listener) {
-		tableColumnEdit.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Brand>(param.getValue()));
+		tableColumnEdit.setCellValueFactory(param -> 
+			new ReadOnlyObjectWrapper<Brand>(param.getValue()));
 		tableColumnEdit.setCellFactory(param -> new TableCell<Brand, Brand>() {
 
 			private final Button button = new Button("edit");
@@ -113,13 +115,16 @@ public class BrandListController implements Initializable, DataChangeListener {
 				getCursor();
 				button.setCursor(Cursor.HAND);
 				button.setOnAction(
-						event -> GUILoader.createDialogForm("Enter brand data", obj, "BrandForm.fxml",
-								GUILoader.currentStage(event), (BrandFormController controller) -> {
+						event -> GUILoader.createDialogForm("Enter brand data", 
+									obj, "BrandForm.fxml",
+								GUILoader.currentStage(event), 
+								(BrandFormController controller) -> {
 									controller.setMyEntity(obj);
 									controller.setService(new BrandService());
 									controller.subscribeDataChangeListener(listener);
 									controller.updateFormData();
-									GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//car.png", 
+									GUILoader.addImage(controller.getMyScene(), 
+											"src//main//resources//images//car.png", 
 											200.0, 200.0, 425.0, 0.0, 0.0, 0.0);
 								}));
 			}
@@ -128,7 +133,8 @@ public class BrandListController implements Initializable, DataChangeListener {
 
 	/* add an remove button on each table row */
 	public void initRemoveButtons() {
-		tableColumnRemove.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Brand>(param.getValue()));
+		tableColumnRemove.setCellValueFactory(param -> 
+			new ReadOnlyObjectWrapper<Brand>(param.getValue()));
 		tableColumnRemove.setCellFactory(param -> new TableCell<Brand, Brand>() {
 			private final Button button = new Button("remove");
 
@@ -150,7 +156,8 @@ public class BrandListController implements Initializable, DataChangeListener {
 	}
 
 	public void removeEntity(Brand obj) {
-		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Are you sure to delete?");
+		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", 
+				"Are you sure to delete?");
 		if (result.get() == ButtonType.OK) {
 			if (service == null) {
 				throw new IllegalStateException("Service was null");

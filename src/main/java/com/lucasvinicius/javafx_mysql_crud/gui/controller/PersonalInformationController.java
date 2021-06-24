@@ -29,7 +29,8 @@ public class PersonalInformationController implements Initializable, DataChangeL
 	@FXML
 	private Button btPassword;
 	@FXML
-	private Label labelId, labelFullName, labelAge, labelEmail, labelPhone, labelContractNumber, labelDateOfBirth;
+	private Label labelId, labelFullName, labelAge, labelEmail, labelPhone, 
+				labelContractNumber, labelDateOfBirth;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -37,13 +38,15 @@ public class PersonalInformationController implements Initializable, DataChangeL
 
 	public void onBtEditAction(ActionEvent event) {
 		Stage parentStage = GUILoader.currentStage(event);
-		GUILoader.createDialogForm("Enter employee data", loggedInUser, "RegistrationForm.fxml", parentStage,
+		GUILoader.createDialogForm("Enter employee data", loggedInUser, 
+				"RegistrationForm.fxml", parentStage,
 				(RegistrationFormController controller) -> {
 					controller.setService(new UserService());
 					controller.setMyEntity(loggedInUser);
 					controller.subscribeDataChangeListener(this);
 					controller.updateFormData();
-					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//badge.png", 
+					GUILoader.addImage(controller.getMyScene(), 
+							"src//main//resources//images//badge.png", 
 							240.0, 240.0, 430.0, 0.0, 0.0, 170.0);
 				});
 	}
@@ -51,10 +54,11 @@ public class PersonalInformationController implements Initializable, DataChangeL
 	public void onBtPasswordAction(ActionEvent event) {
 		Stage parentStage = GUILoader.currentStage(event);
 		GUILoader.createDialogForm("Enter a new password", loggedInUser, "PasswordForm.fxml",
-				parentStage, (PasswordFormController controller) -> {
+					parentStage, (PasswordFormController controller) -> {
 					controller.setService(new UserService());
 					controller.setMyUser(loggedInUser);
-					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//padlock.png", 
+					GUILoader.addImage(controller.getMyScene(), 
+							"src//main//resources//images//padlock.png", 
 							140.0, 160.0, 500.0, 10.0, 15.0, 50.0);
 				});
 	}

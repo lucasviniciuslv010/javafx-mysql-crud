@@ -30,7 +30,9 @@ import javafx.stage.Stage;
 
 public class GUILoader {
 
-	public static synchronized <T> void loadView(String fxml, Consumer<T> controllerDependencyInjector) {
+	public static synchronized <T> void loadView(String fxml, 
+			Consumer<T> controllerDependencyInjector) {
+		
 		try {
 			FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
 			Parent parent = loader.load();
@@ -60,7 +62,8 @@ public class GUILoader {
 					&& !(loader.getController() instanceof HomeViewController)) {
 
 				MenuBar mainMenuBar = (MenuBar) mainVBox.getChildren().get(0);
-				((VBox) ((ScrollPane) App.getMainScene().getRoot()).getContent()).getChildren().add(0, mainMenuBar);
+				((VBox) ((ScrollPane) App.getMainScene().getRoot()).getContent())
+				.getChildren().add(0, mainMenuBar);
 			}
 			
 			T controller = loader.getController();
@@ -70,10 +73,11 @@ public class GUILoader {
 		} catch (IOException e) {
 			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
+		
 	}
 
-	public static <T> void createDialogForm(String title, AbstractEntity obj, String fxml, Stage parentStage,
-			Consumer<T> controllerDependencyInjector) {
+	public static <T> void createDialogForm(String title, AbstractEntity obj, 
+			String fxml, Stage parentStage, Consumer<T> controllerDependencyInjector) {
 		try {
 			FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
 			AnchorPane anchorPane = loader.load();
@@ -122,8 +126,8 @@ public class GUILoader {
 	}
 
 	/* Adding image at any position in the scene */
-	public static void addImage(Scene scene, String imagePath, Double width, Double height, Double leftAnchor,
-			Double topAnchor, Double rightAnchor, Double bottomAnchor) {
+	public static void addImage(Scene scene, String imagePath, Double width, Double height, 
+			Double leftAnchor, Double topAnchor, Double rightAnchor, Double bottomAnchor) {
 		try {
 			FileInputStream stream = new FileInputStream(imagePath);
 

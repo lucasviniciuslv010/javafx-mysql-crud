@@ -39,7 +39,8 @@ public class User implements AbstractEntity, Serializable {
 	
 	public User() {}
 
-	public User(Long id, String fullName, String contractNumber, String email, Date dateOfBirth, String phone, String password) {
+	public User(Long id, String fullName, String contractNumber, String email, 
+					Date dateOfBirth, String phone, String password) {
 		this.id = id;
 		this.fullName = fullName;
 		this.contractNumber = contractNumber;
@@ -137,8 +138,9 @@ public class User implements AbstractEntity, Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", fullName=" + fullName + ", contractNumber=" + contractNumber + ", email="
-				+ email + ", dateOfBirth=" + dateOfBirth + ", phone=" + phone + ", password=" + password + "]";
+		return "User [id=" + id + ", fullName=" + fullName + ", contractNumber=" 
+				+ contractNumber + ", email=" + email + ", dateOfBirth=" + dateOfBirth
+				+ ", phone=" + phone + ", password=" + password + "]";
 	}
 	
 }

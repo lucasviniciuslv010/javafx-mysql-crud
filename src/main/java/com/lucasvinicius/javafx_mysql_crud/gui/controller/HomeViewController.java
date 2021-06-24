@@ -52,7 +52,8 @@ public class HomeViewController {
 	}
 	
 	public void onMenuItemPersonalInformationAction() {
-		GUILoader.loadView("PersonalInformationView.fxml", (PersonalInformationController controller) -> {
+		GUILoader.loadView("PersonalInformationView.fxml",
+				(PersonalInformationController controller) -> {
 			controller.setLoggedInUser(loggedInUser);
 			controller.updateLabels();
 			GUILoader.addBackgroundImage("src//main//resources//images//background.png");
@@ -60,7 +61,8 @@ public class HomeViewController {
 	}
 	
 	public void onMenuItemDisconnectAction() {
-		Optional<ButtonType> result = Alerts.showConfirmation("Disconnect", "Are you sure you want to disconnect?");
+		Optional<ButtonType> result = Alerts.showConfirmation("Disconnect", 
+				"Are you sure you want to disconnect?");
 		
 		if (result.get() == ButtonType.OK) {
 			GUILoader.loadView("LoginView.fxml", (LoginViewController controller) -> {

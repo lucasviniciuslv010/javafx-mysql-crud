@@ -19,7 +19,8 @@ public abstract class AbstractDAOJPA<Entity extends AbstractEntity, PK extends N
 	@SuppressWarnings("unchecked")
 	public AbstractDAOJPA(EntityManager em) {
 		persistenceContext = em;
-		persistentClass = (Class<Entity>) ((ParameterizedType) getClass().getGenericSuperclass())
+		persistentClass = (Class<Entity>) ((ParameterizedType) getClass()
+				.getGenericSuperclass())
 				.getActualTypeArguments()[0];
 	}
 

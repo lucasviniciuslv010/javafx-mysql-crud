@@ -74,7 +74,8 @@ public class ModelListController implements Initializable, DataChangeListener {
 					controller.updateComboBoxBrand();
 					controller.updateFormData();
 					controller.subscribeDataChangeListener(this);
-					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//car.png", 
+					GUILoader.addImage(controller.getMyScene(), 
+							"src//main//resources//images//car.png", 
 							220.0, 215.0, 415.0, 120.0, 10.0, 60.0);
 				});
 	}
@@ -118,7 +119,8 @@ public class ModelListController implements Initializable, DataChangeListener {
 
 	/* add an update button on each table row */
 	public void initEditButtons(DataChangeListener listener) {
-		tableColumnEdit.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Model>(param.getValue()));
+		tableColumnEdit.setCellValueFactory(param -> 
+			new ReadOnlyObjectWrapper<Model>(param.getValue()));
 		tableColumnEdit.setCellFactory(param -> new TableCell<Model, Model>() {
 
 			private final Button button = new Button("edit");
@@ -135,15 +137,16 @@ public class ModelListController implements Initializable, DataChangeListener {
 				setGraphic(button);
 				getCursor();
 				button.setCursor(Cursor.HAND);
-				button.setOnAction(event -> GUILoader.createDialogForm("Enter car model data", obj,
-						"ModelForm.fxml", GUILoader.currentStage(event),
+				button.setOnAction(event -> GUILoader.createDialogForm("Enter car model data",
+						obj, "ModelForm.fxml", GUILoader.currentStage(event),
 						(ModelFormController controller) -> {
 							controller.setMyEntity(obj);
 							controller.setServices(new ModelService(), new BrandService());
 							controller.updateComboBoxBrand();
 							controller.updateFormData();
 							controller.subscribeDataChangeListener(listener);
-							GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//car.png", 
+							GUILoader.addImage(controller.getMyScene(), 
+									"src//main//resources//images//car.png", 
 									220.0, 215.0, 415.0, 120.0, 10.0, 60.0);
 						}));
 			}
@@ -152,7 +155,8 @@ public class ModelListController implements Initializable, DataChangeListener {
 
 	/* add an remove button on each table row */
 	public void initRemoveButtons() {
-		tableColumnRemove.setCellValueFactory(param -> new ReadOnlyObjectWrapper<Model>(param.getValue()));
+		tableColumnRemove.setCellValueFactory(param -> 
+			new ReadOnlyObjectWrapper<Model>(param.getValue()));
 		tableColumnRemove.setCellFactory(param -> new TableCell<Model, Model>() {
 			private final Button button = new Button("remove");
 
@@ -174,7 +178,8 @@ public class ModelListController implements Initializable, DataChangeListener {
 	}
 
 	public void removeEntity(Model obj) {
-		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Are you sure to delete?");
+		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", 
+				"Are you sure to delete?");
 
 		if (result.get() == ButtonType.OK) {
 			if (service == null) {

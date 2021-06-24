@@ -27,7 +27,8 @@ public class UserService {
 				persistenceContext.getTransaction().commit();
 			} catch (RuntimeException e) {
 				persistenceContext.getTransaction().rollback();
-				Alerts.showAlert("Unexpected Error", "Error saving user", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error saving user", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -50,7 +51,8 @@ public class UserService {
 				persistenceContext.getTransaction().commit();
 			} catch (RuntimeException e) {
 				persistenceContext.getTransaction().rollback();
-				Alerts.showAlert("Unexpected Error", "Error removing user", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error removing user", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -70,7 +72,8 @@ public class UserService {
 			try {
 				user = dao.findById(id);
 			} catch (RuntimeException e) {
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -90,7 +93,8 @@ public class UserService {
 			try {
 				users = dao.findByName(name);
 			} catch (RuntimeException e) {
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -110,7 +114,8 @@ public class UserService {
 			try {
 				user = dao.findByEmail(email);
 			} catch (RuntimeException e) {
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -130,7 +135,8 @@ public class UserService {
 			try {
 				user = dao.findByContractNumber(contractNumber);
 			} catch (RuntimeException e) {
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -148,7 +154,8 @@ public class UserService {
 		try {
 			users = dao.findAll();
 		} catch (RuntimeException e) {
-			Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+			Alerts.showAlert("Unexpected Error", "Error fetching data", 
+					e.getMessage(), AlertType.ERROR);
 		} finally {
 			persistenceContext.close();
 		}

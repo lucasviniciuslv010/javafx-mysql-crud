@@ -70,13 +70,16 @@ public class LoginViewController implements Initializable {
 	public void onBtSignUpAction(ActionEvent event) {
 		User obj = new User();
 		Stage parentStage = GUILoader.currentStage(event);
-		GUILoader.createDialogForm("Enter employee data", obj, "RegistrationForm.fxml", parentStage,
-				(RegistrationFormController controller) -> {
+		GUILoader.createDialogForm("Enter employee data", obj, 
+				"RegistrationForm.fxml", parentStage,
+				(RegistrationFormController controller) -> 
+				{
 					controller.setService(new UserService());
 					controller.setMyEntity(obj);
 					controller.updateFormData();
-					GUILoader.addImage(controller.getMyScene(), "src//main//resources//images//badge.png", 
-							240.0, 240.0, 430.0, 0.0, 0.0, 170.0);
+					GUILoader.addImage(controller.getMyScene(), 
+							"src//main//resources//images//badge.png", 
+							240.0, 240.0, 440.0, 0.0, 0.0, 160.0);
 				});
 	}
 

@@ -50,7 +50,8 @@ public class ViewUtil {
 		});
 	}
 
-	public static <T> void formatTableColumnDouble(TableColumn<T, Double> tableColumn, int decimalPlaces) {
+	public static <T> void formatTableColumnDouble(TableColumn<T, Double> 
+	tableColumn, int decimalPlaces) {
 		tableColumn.setCellFactory(column -> {
 
 			TableCell<T, Double> cell = new TableCell<T, Double>() {

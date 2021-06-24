@@ -41,7 +41,8 @@ public class Model implements AbstractEntity, Serializable {
 	
 	public Model() {}
 
-	public Model(Long id, String name, Double price, String year, String status, String bodywork, Brand brand) {
+	public Model(Long id, String name, Double price, String year, String status, 
+					String bodywork, Brand brand) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -135,8 +136,9 @@ public class Model implements AbstractEntity, Serializable {
 
 	@Override
 	public String toString() {
-		return "Model [id=" + id + ", name=" + name + ", price=" + price + ", year=" + year + ", status=" + status
-				+ ", bodywork=" + bodywork + ", brand=" + brand + "]";
+		return "Model [id=" + id + ", name=" + name + ", price=" + price + ", year=" 
+				+ year + ", status=" + status + ", bodywork=" + bodywork + ", brand=" 
+				+ brand + "]";
 	}
 	
 }

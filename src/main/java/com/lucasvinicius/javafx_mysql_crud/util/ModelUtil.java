@@ -49,7 +49,8 @@ public class ModelUtil {
 		if (contractNumber.length() < 6) 
 			throw new IllegalArgumentException("Invalid contract number.");
 		
-		String formattedContract = contractNumber.substring(0, 6) + " - " + contractNumber.substring(6);
+		String formattedContract = contractNumber.substring(0, 6) + " - " 
+				+ contractNumber.substring(6);
 		return formattedContract;
 	}
 	

@@ -27,7 +27,8 @@ public class BrandService {
 				persistenceContext.getTransaction().commit();
 			} catch (RuntimeException e) {
 				persistenceContext.getTransaction().rollback();
-				Alerts.showAlert("Unexpected Error", "Error saving brand", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error saving brand", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -50,7 +51,8 @@ public class BrandService {
 				persistenceContext.getTransaction().commit();
 			} catch (RuntimeException e) {
 				persistenceContext.getTransaction().rollback();
-				Alerts.showAlert("Unexpected Error", "Error removing brand", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error removing brand", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -70,7 +72,8 @@ public class BrandService {
 			try {
 				brand = dao.findById(id);
 			} catch (RuntimeException e) {
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -91,7 +94,8 @@ public class BrandService {
 				brand = dao.findByName(name);
 			} catch (RuntimeException e) {
 				e.printStackTrace();
-				Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+				Alerts.showAlert("Unexpected Error", "Error fetching data", 
+						e.getMessage(), AlertType.ERROR);
 			} finally {
 				persistenceContext.close();
 			}
@@ -109,7 +113,8 @@ public class BrandService {
 		try {
 			brands = dao.findAll();
 		} catch (RuntimeException e) {
-			Alerts.showAlert("Unexpected Error", "Error fetching data", e.getMessage(), AlertType.ERROR);
+			Alerts.showAlert("Unexpected Error", "Error fetching data", 
+					e.getMessage(), AlertType.ERROR);
 		} finally {
 			persistenceContext.close();
 		}
